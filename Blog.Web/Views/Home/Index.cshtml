@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container mb-6">
     <div class="row justify-content-center">
         <div class="col-6 d-flex">
 
@@ -86,32 +86,68 @@
                     </div>
                 }
             }
+            <div id="no-matching-posts" style="display:none;" class="my-3">
+                <p>No blog posts match the selected tags.
+                     Try to click again at some tags to remove them.</p>
+            </div>
 
         </div>
     </div>
 </div>
 
 <script>
-    let isFiltered = false;
-    
     const blogPosts = document.querySelectorAll(".blogPostContent");
+    const selectedTags = new Set();
+    const tags = document.querySelectorAll(".blogTags");
+    const noMatchingPostsMessage = document.getElementById("no-matching-posts");
 
-    //const tags = document.querySelectorAll(".blogTags")
-    //    .forEach(box =>
-    //        box.addEventListener("click", (e) => {
-    //            alert(e.target.innerText)
-    //            isFiltered = true;
-    //            blogPosts.forEach(post => {
-    //                if (e.target.innerText )
-    //                {
-    //                    post.classList.toggle("postHidden");
-    //                }
-    //            })
-    //        }));
+    tags.forEach(tag =>
+            tag.addEventListener("click", (e) => {
 
-    console.log(blogPosts[0].children);
+                const clickedTag = e.target.innerText;
 
+                tag.classList.toggle("text-success");
 
-    //blogPostContent
-    //tags.addEventListener("click", (e) => console.log(e));
+                if (selectedTags.has(clickedTag))
+                {
+                    selectedTags.delete(clickedTag);
+                }
+                else
+                {
+                    selectedTags.add(clickedTag);
+                }
+
+                let hasMatchingPosts = false;
+
+                blogPosts.forEach(post => {
+                    const postTags = post.querySelectorAll(".postTags");
+                    let shouldDisplay = true;
+
+                    selectedTags.forEach(selectedTag => {
+                        if (!Array.from(postTags).some(tag => tag.innerText.includes(selectedTag)))
+                        {
+                            shouldDisplay = false;
+                        }
+                    });
+
+                    if (shouldDisplay)
+                    {
+                        post.style.display = "block";
+                        hasMatchingPosts = true;
+                    }
+                    else
+                    {
+                        post.style.display = "none";
+                    }
+                });
+
+                if (!hasMatchingPosts)
+                {
+                    noMatchingPostsMessage.style.display = "block";
+                }
+                else
+                {
+                    noMatchingPostsMessage.style.display = "none";
+                }
+            }));
 </script>
