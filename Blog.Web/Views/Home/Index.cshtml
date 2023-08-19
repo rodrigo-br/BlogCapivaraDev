@@ -1,0 +1,117 @@
+﻿@model Blog.Web.Models.ViewModels.HomeViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-5 py-5">
+        <div class="col-12 col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">
+                Capybara Dev Blog
+            </h1>
+            <p>
+                Capybara Dev Blog is a documentation of my learning process covering
+                topics like C, C++, C#, Game Development, Algorithms and more.
+            </p>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <img src="https://res.cloudinary.com/dkbujpnnv/image/upload/v1691103077/pexels-magali-guimar%C3%A3es-5479610_jzhexx.jpg"
+                alt="Image of a capybara siting by the river"
+                class="d-block mx-lg-auto img-fluid width=300" />
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 d-flex">
+
+            @if (Model != null && Model.Tags.Any())
+            {
+                foreach (var tag in Model.Tags)
+                {
+                    <span class="badge bg-dark me-1 blogTags">
+                        @tag.Name
+                    </span>
+                }
+            }
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+
+            @if (Model != null && Model.BlogPosts.Any())
+            {
+                foreach (var blogpost in Model.BlogPosts)
+                {
+                    <div class="mb-5 bg-light box-shadow p-5 blogPostContent">
+                        <img src="@blogpost.FeaturedImageUrl"
+                            alt="Featured image of this post"
+                            class="mb-2 d-block img-fluid" />
+
+                        <h2 class="mb-4">
+                            @blogpost.Heading
+                        </h2>
+
+                        <p class="mb-4">
+                            Author: @blogpost.Author
+                            <br />
+                            Published Date: @blogpost.PublishedDate.ToShortDateString()
+                        </p>
+
+                        <ul class="mb-4">
+                            @foreach (var tag in blogpost.Tags)
+                            {
+                                <li class="badge bg-secondary me-1 postTags">
+                                    @tag.Name
+                                </li>
+                            }
+                        </ul>
+
+                        <p class="mb-4">
+                            @blogpost.ShortDescription
+                        </p>
+
+                        <a class="btn btn-dark"
+                            asp-area=""
+                            asp-controller="Posts"
+                            asp-action="Index"
+                            asp-route-urlHandle="@blogpost.UrlHandle"
+                        >Read More</a>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>
+
+<script>
+    let isFiltered = false;
+    
+    const blogPosts = document.querySelectorAll(".blogPostContent");
+
+    //const tags = document.querySelectorAll(".blogTags")
+    //    .forEach(box =>
+    //        box.addEventListener("click", (e) => {
+    //            alert(e.target.innerText)
+    //            isFiltered = true;
+    //            blogPosts.forEach(post => {
+    //                if (e.target.innerText )
+    //                {
+    //                    post.classList.toggle("postHidden");
+    //                }
+    //            })
+    //        }));
+
+    console.log(blogPosts[0].children);
+
+
+    //blogPostContent
+    //tags.addEventListener("click", (e) => console.log(e));
+</script>
