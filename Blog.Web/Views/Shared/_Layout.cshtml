@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
 </head>
-<body class="bg-secondary">
+<body class="bg-dark">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-dark border-bottom box-shadow" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-black border-bottom box-shadow" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">Capybara Dev</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
@@ -33,7 +33,7 @@
                         {
 
                             <li class="nav-item dropdown">
-                                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-black dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false">
                                     Admin
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark">
@@ -97,7 +97,7 @@
                                 @User?.Identity?.Name
                             </div>
 
-                            <a class="btn me-3 bg-light text-dark"
+                            <a class="btn me-3 bg-info bg-opacity-10 text-light"
                                asp-area=""
                                asp-controller="Account"
                                asp-action="Logout">
@@ -107,14 +107,14 @@
                         }
                         else
                         {
-                            <a class="btn me-3 bg-light text-dark"
+                            <a class="btn me-3 bg-primary bg-opacity-50 text-light"
                                asp-area=""
                                asp-controller="Account"
                                asp-action="Login">
                                 Login
                             </a>
 
-                            <a class="btn me-3 bg-light text-dark"
+                            <a class="btn me-3 bg-primary bg-opacity-50 text-light"
                                asp-area=""
                                asp-controller="Account"
                                asp-action="Register">
@@ -133,7 +133,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-body-secondary bg-dark text-muted">
+    <footer class="border-top footer text-body-secondary bg-black text-muted">
         <div class="container">
             &copy; 2023 - Capybara Dev Blog - <a class="text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

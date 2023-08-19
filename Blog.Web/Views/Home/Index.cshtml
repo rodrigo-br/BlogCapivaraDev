@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container col-xxl-8 px-4 py-5">
+<div class="container col-xxl-8 px-4 py-5 text-light">
     <div class="row align-items-center g-5 py-5">
         <div class="col-12 col-lg-6">
             <h1 class="display-5 fw-bold lh-1 mb-3">
@@ -25,13 +25,13 @@
 
 <div class="container mb-6">
     <div class="row justify-content-center">
-        <div class="col-6 d-flex">
+        <div class="col-8 d-flex">
 
             @if (Model != null && Model.Tags.Any())
             {
                 foreach (var tag in Model.Tags)
                 {
-                    <span class="badge bg-dark me-1 blogTags">
+                    <span class="badge bg-secondary me-1 blogTags my-3">
                         @tag.Name
                     </span>
                 }
@@ -43,13 +43,13 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-8">
 
             @if (Model != null && Model.BlogPosts.Any())
             {
                 foreach (var blogpost in Model.BlogPosts)
                 {
-                    <div class="mb-5 bg-light box-shadow p-5 blogPostContent">
+                    <div class="mb-5 bg-black rounded-3 box-shadow p-5 blogPostContent text-light">
                         <img src="@blogpost.FeaturedImageUrl"
                             alt="Featured image of this post"
                             class="mb-2 d-block img-fluid" />
@@ -64,20 +64,20 @@
                             Published Date: @blogpost.PublishedDate.ToShortDateString()
                         </p>
 
-                        <ul class="mb-4">
+                        <p class="mb-4">
                             @foreach (var tag in blogpost.Tags)
                             {
-                                <li class="badge bg-secondary me-1 postTags">
+                                <span class="badge bg-primary bg-opacity-75 me-1 postTags">
                                     @tag.Name
-                                </li>
+                                </span>
                             }
-                        </ul>
+                        </p>
 
                         <p class="mb-4">
                             @blogpost.ShortDescription
                         </p>
 
-                        <a class="btn btn-dark"
+                        <a class="btn bg-info bg-opacity-25 text-light"
                             asp-area=""
                             asp-controller="Posts"
                             asp-action="Index"
@@ -106,7 +106,8 @@
 
                 const clickedTag = e.target.innerText;
 
-                tag.classList.toggle("text-success");
+                tag.classList.toggle("bg-primary");
+                tag.classList.toggle("bg-secondary");
 
                 if (selectedTags.has(clickedTag))
                 {
