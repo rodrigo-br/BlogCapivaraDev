@@ -2,13 +2,13 @@
 @{
 }
 
-<div class="bg-secondary bg-opacity-10 py-2">
+<div class="text-light py-2">
     <div class="container">
         <h1>Edit BlogPost - Admin Functionality</h1>
     </div>
 </div>
 
-<div class="container py-5">
+<div class="container py-5 text-light">
 
     @if (Model != null)
     {
@@ -17,21 +17,21 @@
                 <label class="form-label">
                     Id
                 </label>
-                <input type="text" class="form-control" id="id" asp-for="Id" readonly />
+                <input type="text" class="form-control bg-secondary text-light fw-bold" id="id" asp-for="Id" readonly />
             </div>
 
             <div class="mb-3">
                 <label class="form-label">
                     Heading
                 </label>
-                <input type="text" class="form-control" id="heading" asp-for="Heading" />
+                <input type="text" class="form-control bg-secondary text-light fw-bold" id="heading" asp-for="Heading" />
             </div>
 
             <div class="mb-3">
                 <label class="form-label">
                     Page Title
                 </label>
-                <input type="text" class="form-control" id="pageTitle" asp-for="PageTitle" />
+                <input type="text" class="form-control bg-secondary text-light fw-bold" id="pageTitle" asp-for="PageTitle" />
             </div>
 
             <div class="mb-3">
@@ -45,7 +45,7 @@
                 <label class="form-label">
                     Short Description
                 </label>
-                <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription" />
+                <input type="text" class="form-control bg-secondary text-light fw-bold" id="shortDescription" asp-for="ShortDescription" />
             </div>
 
             <div class="mb-3">
@@ -68,28 +68,28 @@
                 <label class="form-label">
                     Featured Image URL
                 </label>
-                <input type="text" class="form-control" id="featuredImageUrl" asp-for="FeaturedImageUrl" />
+                <input type="text" class="form-control bg-secondary text-light fw-bold" id="featuredImageUrl" asp-for="FeaturedImageUrl" />
             </div>
 
             <div class="mb-3">
                 <label class="form-label">
                     URL Handle
                 </label>
-                <input type="text" class="form-control" id="urlHandle" asp-for="UrlHandle" />
+                <input type="text" class="form-control bg-secondary text-light fw-bold" id="urlHandle" asp-for="UrlHandle" />
             </div>
 
             <div class="mb-3">
                 <label class="form-label">
                     Published Date
                 </label>
-                <input type="date" class="form-control" id="publishedDate" asp-for="PublishedDate" />
+                <input type="date" class="form-control bg-secondary text-light fw-bold" id="publishedDate" asp-for="PublishedDate" />
             </div>
 
             <div class="mb-3">
                 <label class="form-label">
                     Author
                 </label>
-                <input type="text" class="form-control" id="author" asp-for="Author" />
+                <input type="text" class="form-control bg-secondary text-light fw-bold" id="author" asp-for="Author" />
             </div>
 
             <div class="form-check mb-3">
@@ -110,7 +110,7 @@
             </div>
 
             <div class="mb-3 d-flex">
-                <button type="submit" class="btn btn-dark">
+                <button type="submit" class="btn btn-primary">
                     Update
                 </button>
 

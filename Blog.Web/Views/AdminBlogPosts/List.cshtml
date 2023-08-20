@@ -2,7 +2,7 @@
 @{
 }
 
-<div class="bg-secondary bg-opacity-10 py-2">
+<div class="text-light py-2">
     <div class="container">
         <h1>All BlogPost - Admin Functionality</h1>
     </div>
@@ -11,8 +11,8 @@
 <div class="container py-5">
     @if (Model != null && Model.Any())
     {
-        <table class="table">
-        <thead>
+        <table class="table text-light border">
+        <thead class="bg-black bg-opacity-50 fw-bold">
             <tr>
                 <td>Id</td>
                 <td>Heading</td>
@@ -30,14 +30,15 @@
                         <div class="d-flex">
                             @foreach (var tag in blogPost.Tags)
                             {
-                                <span class="badge bg-secondary me-1">
+                                <span class="badge bg-primary bg-opacity-50 me-1">
                                     @tag.Name
                                 </span>
                             }
                         </div>
                     </td>
                     <td>
-                        <a asp-area=""
+                        <a class="text-info fw-bold"
+                            asp-area=""
                             asp-controller="AdminBlogPosts"
                             asp-action="Edit"
                             asp-route-id="@blogPost.Id">
