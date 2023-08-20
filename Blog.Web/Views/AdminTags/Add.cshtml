@@ -2,19 +2,19 @@
 @{
 }
 
-<div class="bg-secondary bg-opacity-10 py-2">
-    <div class="container">
+<div class="py-2">
+    <div class="container text-light">
         <h1>Add New Tag - Admin Functionality</h1>
     </div>
 </div>
 
-<div class="container py-5">
+<div class="container py-5 text-light">
     <form method="post">
         <div class="mb-3">
             <label class="form-label">
                 Name
             </label>
-            <input type="text" class="form-control" id="name" asp-for="Name" required/>
+            <input type="text" class="form-control bg-secondary text-light fw-bold" id="name" asp-for="Name" required />
             <span class="text-danger" asp-validation-for="Name"></span>
         </div>
 
@@ -22,12 +22,12 @@
             <label class="form-label">
                 DisplayName
             </label>
-            <input type="text" class="form-control" id="displayName" asp-for="DisplayName" required/>
+            <input type="text" class="form-control bg-secondary text-light fw-bold" id="displayName" asp-for="DisplayName" required />
             <span class="text-danger" asp-validation-for="DisplayName"></span>
         </div>
 
         <div class="mb-3">
-            <button type="submit" class="btn btn-dark">
+            <button type="submit" class="btn btn-primary">
                 Submit
             </button>
         </div>
